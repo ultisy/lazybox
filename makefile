@@ -1,7 +1,7 @@
 CC = aarch64-linux-gcc
 CFLAGS = -Wall -Wextra -std=c99
 
-all: busybox
+all: lazybox
 
 ls.o: ls.c
 	$(CC) $(CFLAGS) -c ls.c
@@ -21,8 +21,8 @@ cat.o: cat.c
 grep.o: grep.c
 	$(CC) $(CFLAGS) -c grep.c
 
-busybox: main.c ls.o cp.o mv.o rm.o cat.o grep.o
-	$(CC) $(CFLAGS) -o busybox main.c ls.o cp.o mv.o rm.o cat.o grep.o
+lazybox: main.c ls.o cp.o mv.o rm.o cat.o grep.o
+	$(CC) $(CFLAGS) -o lazybox main.c ls.o cp.o mv.o rm.o cat.o grep.o
 
 clean:
-	rm -f *.o busybox
+	rm -f *.o lazybox
